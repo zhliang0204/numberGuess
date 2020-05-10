@@ -34,17 +34,17 @@ namespace GAME.NUMBERGUESS.CONSOLEAPP
 				{
 					Random rand = new Random();
 					target = rand.Next(0, 100);
+					Console.WriteLine("Please input a integer between 0 to 100");
 
 					while (gameStatus == GameStatus.START)
 					{
-						Console.WriteLine("Please input a integer between 0 to 100");
 						var readGuess = Console.ReadLine();
 
 						while (!Int32.TryParse(readGuess, out guess) || guess < 0 || guess > 100)
-                        {
-                            Console.WriteLine("Please input a integer between 0 to 100");
-						    readGuess = Console.ReadLine();
-                        }
+						{
+							Console.WriteLine("Please input a integer between 0 to 100");
+							readGuess = Console.ReadLine();
+						}
 
 						if (guess > target)
 							Console.WriteLine($"Your guess number {guess} is too large");
